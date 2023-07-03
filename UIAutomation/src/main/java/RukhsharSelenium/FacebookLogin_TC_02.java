@@ -1,6 +1,4 @@
 package RukhsharSelenium;
-
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -22,7 +20,8 @@ public class FacebookLogin_TC_02 extends SeleniumBase{
 		
 		sb.clickByXpath(gl.allowCookiesBtn);
 		sb.clickByXpath(gl.createAccountBtn);
-		Thread.sleep(2000);
+		
+		sb.explictWaitVisibilityofElementByLOcatorName(gl.firstName);
 		
 		sb.enterTextByName(gl.firstName,"Sania");
 		sb.enterTextByName(gl.lastName,"Mirza");
@@ -35,10 +34,8 @@ public class FacebookLogin_TC_02 extends SeleniumBase{
 		sb.selectByVisisbleText(gl.fbYear,"2000");
 		
 		sb.clickByXpath(gl.selectGenderF);
-		sb.clickByXpath(gl.singUpBtn);
-		
-		Thread.sleep(10000);
-		
+		//sb.clickByXpath(gl.singUpBtn);
+			
 		
 	}
        @AfterTest

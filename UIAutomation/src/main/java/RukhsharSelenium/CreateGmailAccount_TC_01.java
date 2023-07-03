@@ -1,13 +1,4 @@
 package RukhsharSelenium;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-import java.util.List;
-import java.util.ArrayList;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -42,7 +33,7 @@ public class CreateGmailAccount_TC_01 extends SeleniumBase{
 		
 		sb.clickByXpath(gl.nextButton);
 		
-		Thread.sleep(2000);
+		sb.explictWaitVisibilityofElementByLOcator(gl.textBasicInformation);
 		
         String actualBasicInfo = sb.getTextByXpath(gl.textBasicInformation);
 		String expetedBasicInfo="Basic information";
@@ -58,7 +49,7 @@ public class CreateGmailAccount_TC_01 extends SeleniumBase{
 		
 		sb.clickByXpath(gl.nextButton);
 		
-		Thread.sleep(2000);
+		sb.explictWaitVisibilityofElementByLOcator(gl.textChooseEmailAdd);
 		
 		String actualGmailAddress = sb.getTextByXpath(gl.textChooseEmailAdd);	
 	    String expetedGmailAddress="Choose your Gmail address";	

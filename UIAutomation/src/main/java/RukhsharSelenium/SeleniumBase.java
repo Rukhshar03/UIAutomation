@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
@@ -16,6 +17,8 @@ import org.testng.Reporter;
 public class SeleniumBase {
 	
 	   WebDriver driver ;
+	   
+	   
 	
 	    public void launchBrower(String browser,String url) throws InterruptedException {
 	    	
@@ -24,7 +27,7 @@ public class SeleniumBase {
         System.setProperty("webdriver.chrome.driver",".\\src\\main\\java\\drivers\\chromedriver.exe");
 		
 	    driver = new ChromeDriver();
-	    
+	      
 	    }
 	    
 	    else if(browser.equalsIgnoreCase("firefox")) {
@@ -124,12 +127,24 @@ public class SeleniumBase {
     		
     		for(int i=0;i<list.size();i++) {
     			
-    			//wait.until(driver.findElement(null).f)
     			driver.switchTo().window(list.get(window));
     		}
         	
         }
     
+        public void explictWaitVisibilityofElementByLOcator(String xpath) {
+        	
+        	  WebDriverWait wait = new WebDriverWait(driver,30);
+        	  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+        	
+        }
+        
+        public void explictWaitVisibilityofElementByLOcatorName(String name) {
+        	
+      	  WebDriverWait wait = new WebDriverWait(driver,30);
+      	  wait.until(ExpectedConditions.visibilityOfElementLocated(By.name(name)));
+      	
+      }
         
         
 	 public void closeBrower() {
